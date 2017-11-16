@@ -28,6 +28,16 @@ class KAlertController: UIViewController {
     public var alertView: UIView?
     public var preferredStyle: AlertControllerStyle?
     public var transitionAnimation: TransitionAnimationType?
+    public var transitionAnimationClass: UIViewControllerAnimatedTransitioning?
+    
+    public var backgroundColor = UIColor.white
+    public var backgroundView = UIView() {
+        didSet {
+            if oldValue != backgroundView {
+                
+            }
+        }
+    }
     
     // MARK: - @override
     
@@ -41,17 +51,20 @@ class KAlertController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(alertView: UIView, preferredStyle: AlertControllerStyle, transitionAnimation: TransitionAnimationType) {
+    convenience init(alertView: UIView, preferredStyle: AlertControllerStyle = .alert, transitionAnimation: TransitionAnimationType = .fade, transitionAnimationClass: UIViewControllerAnimatedTransitioning? = nil) {
+        
         self.init(nibName: nil, bundle: nil)
         self.alertView = alertView
         self.preferredStyle = preferredStyle
         self.transitionAnimation = transitionAnimation
+        self.transitionAnimationClass = transitionAnimationClass
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        view.backgroundColor = UIColor.clear
+        addBackgroundView()
     }
     
     // MARK: - @func
@@ -65,6 +78,10 @@ class KAlertController: UIViewController {
         definesPresentationContext = true
         modalPresentationStyle = .custom
         transitioningDelegate = self
+    }
+    
+    private func addBackgroundView() {
+        
     }
 }
 
@@ -89,3 +106,28 @@ extension KAlertController: UIViewControllerTransitioningDelegate {
     }
 }
 
+extension UIView {
+    
+    func addConstraintTo(view: UIView, edgeInsert: UIEdgeInsets) {
+        addConstraintWith(view: view, topView: self, leftView: self, bottomView: self, rightView: self, edgeInsert: edgeInsert)
+    }
+    
+    func addConstraintWith(view: UIView, topView: UIView?, leftView: UIView?, bottomView: UIView?, rightView: UIView?, edgeInsert: UIEdgeInsets) {
+        
+        if let topView = topView {
+            self.addConstraint(NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: topView, attribute: .top, multiplier: 1, constant: edgeInsert.top))
+        }
+        
+        if let leftView = leftView {
+            self.addConstraint(NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: leftView, attribute: .left, multiplier: 1, constant: edgeInsert.left))
+        }
+        
+        if let bottomView = bottomView {
+            self.addConstraint(NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .bottom, multiplier: 1, constant: edgeInsert.bottom))
+        }
+        
+        if let rightView = rightView {
+            self.addConstraint(NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: rightView, attribute: .right, multiplier: 1, constant: edgeInsert.right))
+        }
+    }
+}
