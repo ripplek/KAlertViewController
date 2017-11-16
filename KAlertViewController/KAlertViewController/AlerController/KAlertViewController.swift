@@ -20,7 +20,7 @@ enum TransitionAnimationType {
     case custom
 }
 
-class MineAlertController: UIViewController {
+class KAlertController: UIViewController {
     
     // MARK: - @IBOutlet
     
@@ -34,6 +34,7 @@ class MineAlertController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.configController()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,7 +68,7 @@ class MineAlertController: UIViewController {
     }
 }
 
-extension MineAlertController: UIViewControllerTransitioningDelegate {
+extension KAlertController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard transitionAnimation != nil else { return nil }
         
