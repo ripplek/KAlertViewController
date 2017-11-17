@@ -64,7 +64,7 @@ class KAlertFadeAnimation: BaseAnimation {
     override func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
         let alertController = transitionContext.viewController(forKey:
-            UITransitionContextViewControllerKey.to) as! KAlertController
+            UITransitionContextViewControllerKey.from) as! KAlertController
         
         UIView.animate(withDuration: 0.25, animations: {
             alertController.backgroundView.alpha = 0.0
@@ -137,7 +137,7 @@ class KAlertScaleFadeAnimation: BaseAnimation {
     override func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
         let alertController = transitionContext.viewController(forKey:
-            UITransitionContextViewControllerKey.to) as! KAlertController
+            UITransitionContextViewControllerKey.from) as! KAlertController
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             
@@ -211,7 +211,7 @@ class KAlertDropDownAnimation: BaseAnimation {
     override func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
         let alertController = transitionContext.viewController(forKey:
-            UITransitionContextViewControllerKey.to) as! KAlertController
+            UITransitionContextViewControllerKey.from) as! KAlertController
         
         
         UIView.animate(withDuration: 0.25, animations: {
