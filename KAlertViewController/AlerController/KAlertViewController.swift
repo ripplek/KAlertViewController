@@ -30,7 +30,7 @@ class KAlertController: UIViewController {
     public var transitionAnimation: TransitionAnimationType?
     public var transitionAnimationClass: UIViewControllerAnimatedTransitioning?
     
-    public var backgroundColor = UIColor.white
+    public var backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
     public var backgroundView = UIView() {
         didSet {
             if oldValue != backgroundView {
@@ -148,7 +148,7 @@ class KAlertController: UIViewController {
         }
     }
     
-    private func layoutActionSheetStyleView() {
+    private func layoutAlertStyleView() {
         // centerX
         view.addConstraintCenterXTo(alertView, centerYTo: nil)
         configAlertViewWidth()
@@ -164,7 +164,7 @@ class KAlertController: UIViewController {
         }
     }
     
-    private func layoutAlertStyleView() {
+    private func layoutActionSheetStyleView() {
         // remove width constaint
         for constraint in alertView!.constraints {
             if constraint.firstAttribute == .width {

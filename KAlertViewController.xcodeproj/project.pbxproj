@@ -14,6 +14,8 @@
 		665E45A51FBD379600006D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665E45A31FBD379600006D37 /* LaunchScreen.storyboard */; };
 		665E45B21FBD389000006D37 /* KAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E45B11FBD389000006D37 /* KAlertViewController.swift */; };
 		665E45B41FBD38B700006D37 /* BaseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E45B31FBD38B700006D37 /* BaseAnimation.swift */; };
+		669A68881FBE8089003F1F1B /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A68871FBE8089003F1F1B /* ShareView.swift */; };
+		669A688A1FBE8091003F1F1B /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669A68891FBE8091003F1F1B /* ShareView.xib */; };
 		96554E761FBD726C0018E487 /* KAlertFadeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96554E751FBD726C0018E487 /* KAlertFadeAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		665E45A61FBD379600006D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		665E45B11FBD389000006D37 /* KAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KAlertViewController.swift; sourceTree = "<group>"; };
 		665E45B31FBD38B700006D37 /* BaseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnimation.swift; sourceTree = "<group>"; };
+		669A68871FBE8089003F1F1B /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		669A68891FBE8091003F1F1B /* ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareView.xib; sourceTree = "<group>"; };
 		96554E751FBD726C0018E487 /* KAlertFadeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KAlertFadeAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,8 @@
 		665E45AF1FBD383A00006D37 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				669A68871FBE8089003F1F1B /* ShareView.swift */,
+				669A68891FBE8091003F1F1B /* ShareView.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669A688A1FBE8091003F1F1B /* ShareView.xib in Resources */,
 				665E45A51FBD379600006D37 /* LaunchScreen.storyboard in Resources */,
 				665E45A21FBD379600006D37 /* Assets.xcassets in Resources */,
 				665E45A01FBD379600006D37 /* Main.storyboard in Resources */,
@@ -185,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669A68881FBE8089003F1F1B /* ShareView.swift in Sources */,
 				665E459D1FBD379600006D37 /* ViewController.swift in Sources */,
 				665E45B41FBD38B700006D37 /* BaseAnimation.swift in Sources */,
 				665E45B21FBD389000006D37 /* KAlertViewController.swift in Sources */,
