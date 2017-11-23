@@ -8,13 +8,20 @@
 
 import UIKit
 
-class BaseAnimation: NSObject,  UIViewControllerAnimatedTransitioning {
+protocol BaseAnimationProtocol: UIViewControllerAnimatedTransitioning {
+    var isPresent: Bool { get set }
+    init(isPresent: Bool)
+    func presentAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning)
+    func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning)
+}
+
+class BaseAnimation: NSObject, BaseAnimationProtocol {
     
     static let transitionDuration: TimeInterval = 0.4
     
-    open var isPresent: Bool
+    public var isPresent: Bool
     
-    init(isPresent: Bool) {
+    required init(isPresent: Bool) {
         self.isPresent = isPresent
     }
     

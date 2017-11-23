@@ -16,6 +16,8 @@
 		665E45B41FBD38B700006D37 /* BaseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E45B31FBD38B700006D37 /* BaseAnimation.swift */; };
 		669A68881FBE8089003F1F1B /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A68871FBE8089003F1F1B /* ShareView.swift */; };
 		669A688A1FBE8091003F1F1B /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669A68891FBE8091003F1F1B /* ShareView.xib */; };
+		66A2E9311FC3C89B00743D7B /* KAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A2E9301FC3C89B00743D7B /* KAlertView.swift */; };
+		66A2E9331FC3C8B600743D7B /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A2E9321FC3C8B600743D7B /* UIView+AutoLayout.swift */; };
 		96554E761FBD726C0018E487 /* KAlertFadeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96554E751FBD726C0018E487 /* KAlertFadeAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		665E45B31FBD38B700006D37 /* BaseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnimation.swift; sourceTree = "<group>"; };
 		669A68871FBE8089003F1F1B /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		669A68891FBE8091003F1F1B /* ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareView.xib; sourceTree = "<group>"; };
+		66A2E9301FC3C89B00743D7B /* KAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KAlertView.swift; sourceTree = "<group>"; };
+		66A2E9321FC3C8B600743D7B /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		96554E751FBD726C0018E487 /* KAlertFadeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KAlertFadeAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,8 @@
 		665E45AD1FBD382B00006D37 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
+				66A2E9301FC3C89B00743D7B /* KAlertView.swift */,
+				66A2E9321FC3C8B600743D7B /* UIView+AutoLayout.swift */,
 			);
 			path = AlertView;
 			sourceTree = "<group>";
@@ -194,8 +200,10 @@
 			files = (
 				669A68881FBE8089003F1F1B /* ShareView.swift in Sources */,
 				665E459D1FBD379600006D37 /* ViewController.swift in Sources */,
+				66A2E9311FC3C89B00743D7B /* KAlertView.swift in Sources */,
 				665E45B41FBD38B700006D37 /* BaseAnimation.swift in Sources */,
 				665E45B21FBD389000006D37 /* KAlertViewController.swift in Sources */,
+				66A2E9331FC3C8B600743D7B /* UIView+AutoLayout.swift in Sources */,
 				665E459B1FBD379600006D37 /* AppDelegate.swift in Sources */,
 				96554E761FBD726C0018E487 /* KAlertFadeAnimation.swift in Sources */,
 			);

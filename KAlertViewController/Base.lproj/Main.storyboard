@@ -17,16 +17,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uso-ST-CMd">
-                                <rect key="frame" x="164" y="196" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg1" translatesAutoresizingMaskIntoConstraints="NO" id="Oh1-Gg-NqF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uso-ST-CMd">
+                                <rect key="frame" x="117.5" y="290" width="139" height="30"/>
+                                <color key="backgroundColor" red="0.01176470588" green="0.80784313730000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="  showCustomAlert  ">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="showAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAy-3K-F12"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2w-Vf-c4X">
+                                <rect key="frame" x="123.5" y="140" width="128" height="30"/>
+                                <color key="backgroundColor" red="0.01176470588" green="0.80784313730000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="  showKAlertView  ">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAlertAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QST-QL-RgL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJ8-iS-NyT">
+                                <rect key="frame" x="120" y="190" width="135" height="30"/>
+                                <color key="backgroundColor" red="0.01176470588" green="0.80784313730000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="  showActionSheet  ">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showActionSheetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D9Q-xD-wpk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YE4-xi-RjT">
+                                <rect key="frame" x="144" y="240" width="87" height="30"/>
+                                <color key="backgroundColor" red="0.01176470588" green="0.80784313730000001" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="  dropDown  ">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dropDownAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Is-xg-NOW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qJ8-iS-NyT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1oM-HD-Iwt"/>
+                            <constraint firstAttribute="trailing" secondItem="Oh1-Gg-NqF" secondAttribute="trailing" id="60h-kD-aGZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Oh1-Gg-NqF" secondAttribute="bottom" id="A3v-lH-9yn"/>
+                            <constraint firstItem="Uso-ST-CMd" firstAttribute="top" secondItem="YE4-xi-RjT" secondAttribute="bottom" constant="20" id="RR8-jb-xxj"/>
+                            <constraint firstItem="qJ8-iS-NyT" firstAttribute="top" secondItem="W2w-Vf-c4X" secondAttribute="bottom" constant="20" id="Xab-Rh-MTV"/>
+                            <constraint firstItem="YE4-xi-RjT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xg4-7U-L8P"/>
+                            <constraint firstItem="W2w-Vf-c4X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YIV-la-og3"/>
+                            <constraint firstItem="Oh1-Gg-NqF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eDy-dw-twL"/>
+                            <constraint firstItem="W2w-Vf-c4X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="h77-QQ-FfL"/>
+                            <constraint firstItem="Uso-ST-CMd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hYj-7w-fnS"/>
+                            <constraint firstItem="Oh1-Gg-NqF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p2w-yS-pKe"/>
+                            <constraint firstItem="YE4-xi-RjT" firstAttribute="top" secondItem="qJ8-iS-NyT" secondAttribute="bottom" constant="20" id="swe-Go-7mM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -35,6 +84,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg1" width="1080" height="1920"/>
+    </resources>
 </document>

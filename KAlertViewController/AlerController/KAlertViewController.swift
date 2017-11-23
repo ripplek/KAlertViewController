@@ -17,6 +17,7 @@ enum TransitionAnimationType {
     case fade
     case scaleFade
     case dropDown
+    case bounceUp
     case custom
 }
 
@@ -28,7 +29,7 @@ class KAlertController: UIViewController {
     public var alertView: UIView?
     public var preferredStyle: AlertControllerStyle?
     public var transitionAnimation: TransitionAnimationType?
-    public var transitionAnimationClass: UIViewControllerAnimatedTransitioning?
+    public var transitionAnimationClass: BaseAnimationProtocol.Type?
     
     public var backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
     public var backgroundView = UIView() {
@@ -63,13 +64,20 @@ class KAlertController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(alertView: UIView, preferredStyle: AlertControllerStyle = .alert, transitionAnimation: TransitionAnimationType = .fade, transitionAnimationClass: UIViewControllerAnimatedTransitioning? = nil) {
+    convenience init(alertView: UIView, preferredStyle: AlertControllerStyle = .alert, transitionAnimation: TransitionAnimationType = .fade, transitionAnimationClass: BaseAnimationProtocol.Type? = nil) {
         
         self.init(nibName: nil, bundle: nil)
         self.alertView = alertView
         self.preferredStyle = preferredStyle
         self.transitionAnimation = transitionAnimation
         self.transitionAnimationClass = transitionAnimationClass
+    }
+    
+    deinit {
+        if preferredStyle! == .alert {
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -79,6 +87,11 @@ class KAlertController: UIViewController {
         addBackgroundView()
         addSingleTapGesture()
         configAlerView()
+        view.layoutIfNeeded()
+        if preferredStyle! == .alert {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        }
     }
     
     // MARK: - @action
@@ -182,6 +195,32 @@ class KAlertController: UIViewController {
         }
     }
     
+    // MARK: - @Notification
+    // 处理键盘遮挡问题
+    @objc func keyboardWillShow(notification: Notification) {
+        let keyboardRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let alertViewBottomEdge = (view.frame.height - alertView!.frame.height) / 2 - alertViewCenterYOffset
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let differ = keyboardRect.height - alertViewBottomEdge
+        
+        if alertViewCenterYConstraint!.constant == -differ - statusBarHeight {
+            return
+        }
+        
+        if differ >= 0 {
+            alertViewCenterYConstraint?.constant = alertViewCenterYOffset - differ - statusBarHeight
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        alertViewCenterYConstraint?.constant = alertViewCenterYOffset
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
 }
 
 extension KAlertController: UIViewControllerTransitioningDelegate {
@@ -195,8 +234,10 @@ extension KAlertController: UIViewControllerTransitioningDelegate {
             return KAlertScaleFadeAnimation(isPresent: true)
         case .dropDown:
             return KAlertDropDownAnimation(isPresent: true)
+        case .bounceUp:
+            return KAlertBounceUpAnimation(isPresent: true)
         case .custom:
-            return nil
+            return transitionAnimationClass?.init(isPresent: true) ?? nil
         }
     }
     
@@ -210,63 +251,12 @@ extension KAlertController: UIViewControllerTransitioningDelegate {
             return KAlertScaleFadeAnimation(isPresent: false)
         case .dropDown:
             return KAlertDropDownAnimation(isPresent: false)
+        case .bounceUp:
+            return KAlertBounceUpAnimation(isPresent: false)
         case .custom:
-            return nil
+            return transitionAnimationClass?.init(isPresent: false) ?? nil
         }
     }
 }
 
-extension UIView {
-    
-    func addConstraintTo(view: UIView, edgeInsert: UIEdgeInsets) {
-        addConstraintWith(view: view, topView: self, leftView: self, bottomView: self, rightView: self, edgeInsert: edgeInsert)
-    }
-    
-    func addConstraintCenterXTo(_ xView: UIView?, centerYTo yView: UIView?) {
-        if let xView = xView {
-            self.addConstraint(NSLayoutConstraint(item: xView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-        }
-        
-        if let yView = yView {
-            self.addConstraint(NSLayoutConstraint(item: yView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
-        }
-    }
-    
-    func addConstraint(width: CGFloat, height: CGFloat) {
-        if width > 0 {
-            self.addConstraint(NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: width))
-        }
-        
-        if height > 0 {
-            self.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height))
-        }
-    }
-    
-    func addConstraintWith(view: UIView, topView: UIView?, leftView: UIView?, bottomView: UIView?, rightView: UIView?, edgeInsert: UIEdgeInsets) {
-        
-        if let topView = topView {
-            self.addConstraint(NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: topView, attribute: .top, multiplier: 1, constant: edgeInsert.top))
-        }
-        
-        if let leftView = leftView {
-            self.addConstraint(NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: leftView, attribute: .left, multiplier: 1, constant: edgeInsert.left))
-        }
-        
-        if let bottomView = bottomView {
-            self.addConstraint(NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: bottomView, attribute: .bottom, multiplier: 1, constant: edgeInsert.bottom))
-        }
-        
-        if let rightView = rightView {
-            self.addConstraint(NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: rightView, attribute: .right, multiplier: 1, constant: edgeInsert.right))
-        }
-    }
-    
-    func addConstraintCenterYTo(_ yView: UIView?, constant: CGFloat) -> NSLayoutConstraint? {
-        if let yView = yView {
-            let centerYConstraint = NSLayoutConstraint(item: yView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: constant)
-            self.addConstraint(centerYConstraint)
-            return centerYConstraint
-        }
-        return nil
-    }
-}
+
