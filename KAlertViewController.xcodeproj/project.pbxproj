@@ -68,7 +68,7 @@
 		665E45991FBD379600006D37 /* KAlertViewController */ = {
 			isa = PBXGroup;
 			children = (
-				665E45B01FBD387F00006D37 /* AlerController */,
+				665E45B01FBD387F00006D37 /* AlertController */,
 				665E45AC1FBD37DC00006D37 /* Animations */,
 				665E45AD1FBD382B00006D37 /* AlertView */,
 				665E45AE1FBD383400006D37 /* Blur Effects */,
@@ -117,12 +117,12 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
-		665E45B01FBD387F00006D37 /* AlerController */ = {
+		665E45B01FBD387F00006D37 /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
 				665E45B11FBD389000006D37 /* KAlertController.swift */,
 			);
-			path = AlerController;
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
