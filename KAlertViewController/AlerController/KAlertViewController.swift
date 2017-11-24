@@ -96,7 +96,7 @@ class KAlertController: UIViewController {
     
     // MARK: - @action
     @objc func signleTap(gesture: UITapGestureRecognizer) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - @func

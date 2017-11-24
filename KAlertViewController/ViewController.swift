@@ -25,7 +25,9 @@ class ViewController: UIViewController {
         alertView.add(action: KalertAction(title: "取消", style: .cancel, handler: { (action) in
             print(action.title)
         }))
-        alertView.add(action: KalertAction(title: "确定", style: .destructive, handler: { (action) in
+        
+         //MARK: - 注意循环引用
+        alertView.add(action: KalertAction(title: "确定", style: .destructive, handler: { [unowned alertView] (action) in
             print(action.title)
             for textField in alertView.textFields {
                 print(textField.text ?? "")
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
             textField.placeholder = "请输入密码"
         }
         let alertVC = KAlertController(alertView: alertView, preferredStyle: .alert)
+        alertVC.backgoundTapDismissEnable = true
         present(alertVC, animated: true, completion: nil)
     }
     

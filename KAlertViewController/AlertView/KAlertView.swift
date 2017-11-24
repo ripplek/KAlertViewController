@@ -71,6 +71,10 @@ class KAlertView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print(NSStringFromClass(self.classForCoder),"--deinit")
+    }
+    
 //MARK: - publicProperties
     public let titleLabel: UILabel = UILabel()
     public let messageLabel: UILabel = UILabel()
