@@ -12,7 +12,7 @@
 		665E45A01FBD379600006D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665E459E1FBD379600006D37 /* Main.storyboard */; };
 		665E45A21FBD379600006D37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665E45A11FBD379600006D37 /* Assets.xcassets */; };
 		665E45A51FBD379600006D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665E45A31FBD379600006D37 /* LaunchScreen.storyboard */; };
-		665E45B21FBD389000006D37 /* KAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E45B11FBD389000006D37 /* KAlertViewController.swift */; };
+		665E45B21FBD389000006D37 /* KAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E45B11FBD389000006D37 /* KAlertController.swift */; };
 		665E45B41FBD38B700006D37 /* BaseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665E45B31FBD38B700006D37 /* BaseAnimation.swift */; };
 		669A68881FBE8089003F1F1B /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A68871FBE8089003F1F1B /* ShareView.swift */; };
 		669A688A1FBE8091003F1F1B /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669A68891FBE8091003F1F1B /* ShareView.xib */; };
@@ -29,7 +29,7 @@
 		665E45A11FBD379600006D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		665E45A41FBD379600006D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		665E45A61FBD379600006D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		665E45B11FBD389000006D37 /* KAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KAlertViewController.swift; sourceTree = "<group>"; };
+		665E45B11FBD389000006D37 /* KAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KAlertController.swift; sourceTree = "<group>"; };
 		665E45B31FBD38B700006D37 /* BaseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnimation.swift; sourceTree = "<group>"; };
 		669A68871FBE8089003F1F1B /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		669A68891FBE8091003F1F1B /* ShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareView.xib; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		665E45B01FBD387F00006D37 /* AlerController */ = {
 			isa = PBXGroup;
 			children = (
-				665E45B11FBD389000006D37 /* KAlertViewController.swift */,
+				665E45B11FBD389000006D37 /* KAlertController.swift */,
 			);
 			path = AlerController;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 				665E459D1FBD379600006D37 /* ViewController.swift in Sources */,
 				66A2E9311FC3C89B00743D7B /* KAlertView.swift in Sources */,
 				665E45B41FBD38B700006D37 /* BaseAnimation.swift in Sources */,
-				665E45B21FBD389000006D37 /* KAlertViewController.swift in Sources */,
+				665E45B21FBD389000006D37 /* KAlertController.swift in Sources */,
 				66A2E9331FC3C8B600743D7B /* UIView+AutoLayout.swift in Sources */,
 				665E459B1FBD379600006D37 /* AppDelegate.swift in Sources */,
 				96554E761FBD726C0018E487 /* KAlertFadeAnimation.swift in Sources */,
