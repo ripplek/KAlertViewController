@@ -11,15 +11,22 @@ Pod::Spec.new do |s|
 
 
     s.name         = "KAlertViewController"
-    s.version      = "0.0.3"
-    s.summary      = "A Alert Library for iOS."
+    s.version      = "0.0.4"
+    s.summary      = "A alert library for iOS"
+    s.description  = <<-EOS
+    KAlertViewController is a custom alert view.
+    It is applicable to the daily development of common frame requirements.
+
+    Instructions for installation
+    are in [the README](https://github.com/ripplek/KAlertViewController).
+    EOS
     s.homepage     = "https://github.com/ripplek/KAlertViewController"
     s.license      = { :type => "MIT", :file => "LICENSE" }
     s.author       = { "张坤" => "ripple_k@163.com" }
     s.source       = { :git => "https://github.com/ripplek/KAlertViewController.git", :tag => "#{s.version}" }
-    s.ios.deployment_target = "9.0"
+    s.ios.deployment_target = "8.0"
     s.source_files  = "KAlertViewController/AlertController/*.swift", "KAlertViewController/AlertView/*.swift", "KAlertViewController/Animations/*.swift"
+    s.framework = 'UIKit'
     s.requires_arc = true
-    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end
