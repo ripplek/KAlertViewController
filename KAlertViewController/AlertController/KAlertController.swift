@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum AlertControllerStyle {
+public enum AlertControllerStyle {
     case alert
     case actionSheet
 }
 
-enum TransitionAnimationType {
+public enum TransitionAnimationType {
     case fade
     case scaleFade
     case dropDown
@@ -21,7 +21,7 @@ enum TransitionAnimationType {
     case custom
 }
 
-class KAlertController: UIViewController {
+public class KAlertController: UIViewController {
     
     // MARK: - @IBOutlet
     
@@ -60,7 +60,7 @@ class KAlertController: UIViewController {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -80,7 +80,7 @@ class KAlertController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.clear
@@ -224,7 +224,7 @@ class KAlertController: UIViewController {
 }
 
 extension KAlertController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard transitionAnimation != nil else { return nil }
         
         switch transitionAnimation! {
@@ -241,7 +241,7 @@ extension KAlertController: UIViewControllerTransitioningDelegate {
         }
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard transitionAnimation != nil else { return nil }
         
         switch transitionAnimation! {

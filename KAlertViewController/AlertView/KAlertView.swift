@@ -39,19 +39,19 @@ struct KAlertViewDefault {
     static let textFieldFont = UIFont.systemFont(ofSize: 14)
 }
 
-enum KAlertActionStyle {
+public enum KAlertActionStyle {
     case `default`
     case cancel
     case destructive
 }
 
-struct KalertAction {
+public struct KalertAction {
     let title: String
     let style: KAlertActionStyle
     let handler: ((KalertAction)->())?
 }
 
-class KAlertView: UIView {
+public class KAlertView: UIView {
     
 //MARK: - init
     override init(frame: CGRect) {
@@ -67,7 +67,7 @@ class KAlertView: UIView {
         messageLabel.text = message
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -141,7 +141,7 @@ class KAlertView: UIView {
     }
     
 //MARK: - override
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         if self.superview != nil {
             layoutContentViews()
             layoutTextLabels()
