@@ -22,12 +22,12 @@ class ViewController: UIViewController {
 
     @IBAction func showAlertAction(_ sender: Any) {
         let alertView = KAlertView(title: "KAlertView", message: "Warmly celebrate the completion of KAlertView creation")
-        alertView.add(action: KalertAction(title: "取消", style: .cancel, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "取消", style: .cancel, handler: { (action) in
             print(action.title)
         }))
         
          //MARK: - 注意循环引用
-        alertView.add(action: KalertAction(title: "确定", style: .destructive, handler: { [unowned alertView] (action) in
+        alertView.add(action: KAlertAction(title: "确定", style: .destructive, handler: { [unowned alertView] (action) in
             print(action.title)
             for textField in alertView.textFields {
                 print(textField.text ?? "")
@@ -46,19 +46,19 @@ class ViewController: UIViewController {
     
     @IBAction func showActionSheetAction(_ sender: Any) {
         let alertView = KAlertView(title: "KAlertView", message: "Warmly celebrate the completion of KAlertView creation")
-        alertView.add(action: KalertAction(title: "默认1", style: .default, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "默认1", style: .default, handler: { (action) in
             print(action.title)
         }))
-        alertView.add(action: KalertAction(title: "默认2", style: .default, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "默认2", style: .default, handler: { (action) in
             print(action.title)
         }))
-        alertView.add(action: KalertAction(title: "默认3", style: .default, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "默认3", style: .default, handler: { (action) in
             print(action.title)
         }))
-        alertView.add(action: KalertAction(title: "删除", style: .destructive, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "删除", style: .destructive, handler: { (action) in
             print(action.title)
         }))
-        alertView.add(action: KalertAction(title: "取消", style: .cancel, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "取消", style: .cancel, handler: { (action) in
             print(action.title)
         }))
         let alertVC = KAlertController(alertView: alertView, preferredStyle: .actionSheet)
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
     
     @IBAction func dropDownAction(_ sender: Any) {
         let alertView = KAlertView(title: "KAlertView", message: "Warmly celebrate the completion of KAlertView creation")
-        alertView.add(action: KalertAction(title: "取消", style: .cancel, handler: { (action) in
+        alertView.add(action: KAlertAction(title: "取消", style: .cancel, handler: { (action) in
             print(action.title)
         }))
         let alertVC = KAlertController(alertView: alertView, preferredStyle: .alert, transitionAnimation: .dropDown)

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
 
     s.name         = "KAlertViewController"
-    s.version      = "0.0.4"
+    s.version      = "1.0.0"
     s.summary      = "A alert library for iOS"
     s.description  = <<-EOS
     KAlertViewController is a custom alert view.

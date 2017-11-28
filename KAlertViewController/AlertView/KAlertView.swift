@@ -45,10 +45,16 @@ public enum KAlertActionStyle {
     case destructive
 }
 
-public struct KalertAction {
+public struct KAlertAction {
     let title: String
     let style: KAlertActionStyle
-    let handler: ((KalertAction)->())?
+    let handler: ((KAlertAction)->())?
+    
+    public init(title: String, style: KAlertActionStyle, handler: ((KAlertAction)->())?) {
+        self.title = title
+        self.style = style
+        self.handler = handler
+    }
 }
 
 public class KAlertView: UIView {
@@ -61,7 +67,7 @@ public class KAlertView: UIView {
         addTextLabels()
     }
     
-    convenience init(title: String, message: String) {
+    convenience public init(title: String, message: String) {
         self.init(frame: CGRect.zero)
         titleLabel.text = title
         messageLabel.text = message
@@ -127,12 +133,12 @@ public class KAlertView: UIView {
     public var textFields: [UITextField] = []
     public var textFieldSeparateViews: [UIView] = []
     public var buttons: [UIButton] = []
-    public var actions: [KalertAction] = []
+    public var actions: [KAlertAction] = []
     
     public var clickedAutoHide: Bool = true
     
 //MARK: - publicFunc
-    public func add(action: KalertAction) {
+    public func add(action: KAlertAction) {
         _add(action: action)
     }
     
@@ -158,7 +164,7 @@ public class KAlertView: UIView {
     }
     
 //MARK: - privateFunc
-    private func _add(action: KalertAction) {
+    private func _add(action: KAlertAction) {
         let button = UIButton(type: .custom)
         button.clipsToBounds = true
         button.layer.cornerRadius = buttonCornerRadius

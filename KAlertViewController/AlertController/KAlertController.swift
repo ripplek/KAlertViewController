@@ -64,7 +64,7 @@ public class KAlertController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(alertView: UIView, preferredStyle: AlertControllerStyle = .alert, transitionAnimation: TransitionAnimationType = .fade, transitionAnimationClass: BaseAnimationProtocol.Type? = nil) {
+    convenience public init(alertView: UIView, preferredStyle: AlertControllerStyle = .alert, transitionAnimation: TransitionAnimationType = .fade, transitionAnimationClass: BaseAnimationProtocol.Type? = nil) {
         
         self.init(nibName: nil, bundle: nil)
         self.alertView = alertView

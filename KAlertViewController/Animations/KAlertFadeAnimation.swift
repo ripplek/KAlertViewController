@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class KAlertFadeAnimation: BaseAnimation {
+class KAlertFadeAnimation: BaseAnimation {
 
-    override public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    override func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
     
         if self.isPresent {
             return 0.45
@@ -18,7 +18,7 @@ public class KAlertFadeAnimation: BaseAnimation {
         return 0.25
     }
     
-    override public func presentAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    override func presentAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
         let alertController = transitionContext.viewController(forKey:
             UITransitionContextViewControllerKey.to) as! KAlertController
@@ -57,7 +57,7 @@ public class KAlertFadeAnimation: BaseAnimation {
         }
     }
     
-    override public func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    override func dismissAnimateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
         let alertController = transitionContext.viewController(forKey:
             UITransitionContextViewControllerKey.from) as! KAlertController
