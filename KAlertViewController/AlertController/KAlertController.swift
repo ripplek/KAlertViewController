@@ -75,8 +75,8 @@ public class KAlertController: UIViewController {
     
     deinit {
         if preferredStyle! == .alert {
-            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         }
     }
     
@@ -89,8 +89,8 @@ public class KAlertController: UIViewController {
         configAlerView()
         view.layoutIfNeeded()
         if preferredStyle! == .alert {
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         }
     }
     
@@ -187,7 +187,7 @@ public class KAlertController: UIViewController {
         }
         
         // add edge constraint
-        view.addConstraintWith(view: alertView!, topView: nil, leftView: view, bottomView: view, rightView: view, edgeInsert: UIEdgeInsetsMake(0, actionSheetStyleEdging, 0, -actionSheetStyleEdging))
+        view.addConstraintWith(view: alertView!, topView: nil, leftView: view, bottomView: view, rightView: view, edgeInsert: UIEdgeInsets.init(top: 0, left: actionSheetStyleEdging, bottom: 0, right: -actionSheetStyleEdging))
         
         if alertView!.frame.height > 0 {
             // height
@@ -198,7 +198,7 @@ public class KAlertController: UIViewController {
     // MARK: - @Notification
     // 处理键盘遮挡问题
     @objc func keyboardWillShow(notification: Notification) {
-        let keyboardRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let keyboardRect = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
         let alertViewBottomEdge = (view.frame.height - alertView!.frame.height) / 2 - alertViewCenterYOffset
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let differ = keyboardRect.height - alertViewBottomEdge

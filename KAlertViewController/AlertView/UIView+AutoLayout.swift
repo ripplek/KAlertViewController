@@ -85,7 +85,7 @@ extension UIView {
         self.addConstraint(NSLayoutConstraint(item: leftView, attribute: .right, relatedBy: .equal, toItem: rightView, attribute: .left, multiplier: 1, constant: -constant))
     }
     
-    func removeConstraint(view: UIView, attribute: NSLayoutAttribute) {
+    func removeConstraint(view: UIView, attribute: NSLayoutConstraint.Attribute) {
         for constant in self.constraints {
             
             if constant.firstAttribute == attribute && constant.firstItem as! UIView == view {

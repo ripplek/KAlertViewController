@@ -177,7 +177,7 @@ class KAlertDropDownAnimation: BaseAnimation {
                        delay: 0.0,
                        usingSpringWithDamping: 0.65,
                        initialSpringVelocity: 0.5,
-                       options: UIViewAnimationOptions(rawValue: 0),
+                       options: UIView.AnimationOptions(rawValue: 0),
                        animations: {
             
             alertController.backgroundView.alpha = 1.0
@@ -244,7 +244,7 @@ class KAlertBounceUpAnimation: BaseAnimation {
                        delay: 0.0,
                        usingSpringWithDamping: 0.65,
                        initialSpringVelocity: 0.5,
-                       options: UIViewAnimationOptions(rawValue: 0),
+                       options: UIView.AnimationOptions(rawValue: 0),
                        animations: {
                         
                         alertController.backgroundView.alpha = 1.0
